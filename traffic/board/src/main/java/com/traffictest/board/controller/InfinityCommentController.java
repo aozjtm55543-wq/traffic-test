@@ -46,5 +46,4 @@ public class InfinityCommentController {
         long endTime = System.currentTimeMillis();
         return endTime - startTime;
     }
-
 }

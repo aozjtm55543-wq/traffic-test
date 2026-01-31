@@ -5,6 +5,7 @@ import com.traffictest.entity.InfinityCommentRepository;
 import com.traffictest.entity.User;
 import com.traffictest.entity.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.checkerframework.checker.units.qual.A;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -77,8 +78,8 @@ public class InfinityCommentService {
         List<InfinityComment> childrens = new ArrayList<>();
         parents.add(comment);
         while (counter < count) {
-            for (InfinityComment parent : parents) {
-                for (int i = 0; i < parents.size() * 2; i++) {
+            for(InfinityComment parent : parents){
+                for(int i=0;i<parents.size() * 2;i++){
                     comment = InfinityComment.builder()
                             .content("commnet =" + counter)
                             .parent(parent)
@@ -87,11 +88,11 @@ public class InfinityCommentService {
                     childrens.add(comment);
                     buffer.add(comment);
 
-                    if (buffer.size() == 1000) {
+                    if( buffer.size() == 1000){
                         infinityCommentRepository.saveAll(buffer);
                         buffer.clear();
                     }
-                    if (counter == count) {
+                    if(counter == count){
                         infinityCommentRepository.saveAll(buffer);
                         return;
                     }
