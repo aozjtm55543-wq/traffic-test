@@ -4,6 +4,10 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
+@Table(indexes = {
+    @Index(name = "idx_hashtag_name", columnList = "name"),
+    @Index(name = "idx_hashtag_board_id", columnList = "board_id")
+})
 @Getter
 @Builder
 @NoArgsConstructor

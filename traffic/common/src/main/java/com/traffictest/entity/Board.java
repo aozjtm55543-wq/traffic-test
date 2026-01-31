@@ -7,6 +7,9 @@ import java.util.List;
 
 
 @Entity
+@Table(indexes = {
+    @Index(name = "idx_board_subject", columnList = "subject")
+})
 @Getter
 @Setter
 @Builder
